@@ -34,6 +34,7 @@ const EditWorkModal = ({ isOpen, onClose, workId }) => {
   if (!isOpen) return null;
 
   return (
+<<<<<<< HEAD
     <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-md z-50 flex justify-center items-center p-4">
       <div className="bg-gray-800 rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-2xl">
         <h2 className="text-2xl font-bold mb-6 text-gray-100 border-b border-gray-700 pb-4">Edit Work Details</h2>
@@ -61,6 +62,35 @@ const EditWorkModal = ({ isOpen, onClose, workId }) => {
                 Cancel
               </button>
               <button type="submit" disabled={isUpdating} className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 disabled:bg-indigo-800 disabled:cursor-not-allowed transition-colors">
+=======
+    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50 flex justify-center items-center p-4">
+      <div className="bg-white rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-2xl">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-4">Edit Work Details</h2>
+        {isLoadingWork ? <div className="flex justify-center"><Loader /></div> : (
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="edit-title" className="block text-sm font-medium text-gray-700">Title</label>
+              <input type="text" id="edit-title" value={title} onChange={(e) => setTitle(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+            </div>
+            <div>
+              <label htmlFor="edit-description" className="block text-sm font-medium text-gray-700">Description</label>
+              <textarea id="edit-description" value={description} onChange={(e) => setDescription(e.target.value)} rows="3" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+            </div>
+            <div>
+              <label htmlFor="edit-category" className="block text-sm font-medium text-gray-700">Category</label>
+              <select id="edit-category" value={category} onChange={(e) => setCategory(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <option>Art</option>
+                <option>Photography</option>
+                <option>Writing</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div className="flex justify-end space-x-4 pt-4 border-t">
+              <button type="button" onClick={onClose} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-300">
+                Cancel
+              </button>
+              <button type="submit" disabled={isUpdating} className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 disabled:bg-indigo-400">
+>>>>>>> 60e62a399ff357f7e26e5eb8476c57f0e044d190
                 {isUpdating ? 'Saving...' : 'Save Changes'}
               </button>
             </div>

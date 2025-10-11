@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react';
 // import { Outlet } from 'react-router-dom';
 // import { ToastContainer } from 'react-toastify';
@@ -143,10 +144,15 @@
 // App.jsx
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+=======
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+>>>>>>> 60e62a399ff357f7e26e5eb8476c57f0e044d190
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
 
+<<<<<<< HEAD
 const App = () => {
   const location = useLocation();
   
@@ -156,10 +162,17 @@ const App = () => {
   // Check if current page should have the animated background
   const shouldShowBackground = !noBackgroundPages.includes(location.pathname);
 
+=======
+// We will create the Navbar component in a later step
+// import Navbar from './components/layout/Navbar';
+
+const App = () => {
+>>>>>>> 60e62a399ff357f7e26e5eb8476c57f0e044d190
   return (
     <>
       <ToastContainer />
       <Navbar />
+<<<<<<< HEAD
       <main className={`${shouldShowBackground ? 'animated-bg-page' : ''}`}>
         <Outlet />
       </main>
@@ -263,6 +276,11 @@ const App = () => {
           }
         `
       }} />
+=======
+      <main className="py-3">
+        <Outlet />
+      </main>
+>>>>>>> 60e62a399ff357f7e26e5eb8476c57f0e044d190
     </>
   );
 };

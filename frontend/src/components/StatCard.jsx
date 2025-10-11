@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react';
 
 // const StatCard = ({ title, value, icon }) => {
@@ -43,6 +44,19 @@ const StatCard = ({ title, value, icon, description, gradient }) => {
             {description}
           </p>
         )}
+=======
+import React from 'react';
+
+const StatCard = ({ title, value, icon }) => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4">
+      <div className="bg-indigo-100 text-indigo-600 p-3 rounded-full">
+        {icon}
+      </div>
+      <div>
+        <p className="text-sm font-medium text-gray-500">{title}</p>
+        <p className="text-2xl font-bold text-gray-800">{value}</p>
+>>>>>>> 60e62a399ff357f7e26e5eb8476c57f0e044d190
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState } from 'react';
 // import { Link, useNavigate, useLocation } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
@@ -117,7 +118,6 @@
 // };
 
 // export default Navbar;
-
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -151,6 +151,9 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  // Show search bar only on home and search pages
+  const showSearchBar = location.pathname === '/' || location.pathname.startsWith('/search');
+
   const logoutHandler = async () => {
     try {
       await logoutApiCall().unwrap();
@@ -160,8 +163,6 @@ const Navbar = () => {
       console.error(error);
     }
   };
-
-  const showSearchBar = location.pathname === '/' || location.pathname.startsWith('/search');
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -214,7 +215,7 @@ const Navbar = () => {
                     >
                       Create
                     </button>
-
+                    
                     <div className="relative user-menu-container">
                       <button
                         onClick={(e) => {
@@ -223,31 +224,66 @@ const Navbar = () => {
                         }}
                         className="flex items-center space-x-2 text-gray-300 hover:text-white"
                       >
-                        <img src={userInfo.profileImage} alt="profile" className="h-8 w-8 rounded-full object-cover ring-2 ring-transparent group-hover:ring-indigo-500 transition" />
+                        <img 
+                          src={userInfo.profileImage} 
+                          alt="profile" 
+                          className="h-8 w-8 rounded-full object-cover ring-2 ring-transparent group-hover:ring-indigo-500 transition" 
+                        />
                         <span className="font-medium">{userInfo.name}</span>
-                        <svg className={`h-5 w-5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <svg 
+                          className={`h-5 w-5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          viewBox="0 0 20 20" 
+                          fill="currentColor"
+                        >
                           <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                         </svg>
                       </button>
 
                       {isMenuOpen && (
                         <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-800 ring-1 ring-black ring-opacity-25 border border-gray-700 z-50">
-                          <Link to="/profile" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" onClick={() => setIsMenuOpen(false)}>My Profile</Link>
-                          <Link to="/dashboard" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
-                          <button onClick={logoutHandler} className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">Logout</button>
+                          <Link 
+                            to="/profile" 
+                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" 
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            My Profile
+                          </Link>
+                          <Link 
+                            to="/dashboard" 
+                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" 
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            Dashboard
+                          </Link>
+                          <button 
+                            onClick={logoutHandler} 
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white"
+                          >
+                            Logout
+                          </button>
                         </div>
                       )}
                     </div>
                   </div>
                 ) : (
                   <div className="flex items-center space-x-2">
-                    <Link to="/login" className="text-gray-300 hover:bg-white/10 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Sign In</Link>
-                    <Link to="/register" className="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors">Sign Up</Link>
+                    <Link 
+                      to="/login" 
+                      className="text-gray-300 hover:bg-white/10 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    >
+                      Sign In
+                    </Link>
+                    <Link 
+                      to="/register" 
+                      className="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                    >
+                      Sign Up
+                    </Link>
                   </div>
                 )}
               </div>
             </div>
-            
           </div>
         </div>
       </nav>
